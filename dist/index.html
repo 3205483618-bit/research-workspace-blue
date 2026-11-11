@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#155eef" />
+  <title>科研工作台</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="科研工作台首页">
+        <span class="brand-mark">✣</span><span>科研工作台</span><small>Research Workspace</small>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <button class="nav-item active"><span>▣</span> 阅读研究</button>
+        <button class="nav-item"><span>▤</span> 文献管理</button>
+        <button class="nav-item"><span>▰</span> 资源库</button>
+        <button class="nav-item"><span>▧</span> 笔记集</button>
+        <button class="nav-item"><span>✦</span> AI 助手</button>
+      </nav>
+      <div class="top-actions">
+        <label class="search"><span>⌕</span><input id="globalSearch" placeholder="搜索论文 / 笔记 / 资源…" /></label>
+        <button class="icon-button" title="通知">♢<i></i></button>
+        <button class="avatar" title="个人中心">研</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar left-panel">
+        <section class="side-section files-section">
+          <div class="section-title"><span><b class="section-icon">▣</b> 我的科研文件夹</span><button class="plain-icon" id="addFolder" title="新建文件夹">＋</button></div>
+          <div class="tree">
+            <button class="tree-row root"><span>⌄</span><b class="folder">■</b><strong>课题：多模态学习</strong></button>
+            <div class="tree-children">
+              <button class="tree-row"><b class="folder">■</b>文献阅读 <em>23</em></button>
+              <button class="tree-row"><b class="folder">■</b>实验资料 <em>6</em></button>
+              <button class="tree-row"><b class="folder">■</b>写作素材 <em>4</em></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="side-section papers-section">
+          <div class="section-title"><span><b class="section-icon purple">▰</b> 重要论文</span><button class="plain-icon collapse">⌃</button></div>
+          <div class="paper-list" id="paperList">
+            <button class="paper-item active" data-title="A Multimodal Foundation Model for General-Purpose AI"><b>PDF</b><span>A Multimodal Foundation Model…<small>Nature AI · 2025</small></span></button>
+            <button class="paper-item" data-title="Vision-Language Models: A Survey"><b>PDF</b><span>Vision-Language Models: A Survey<small>arXiv · 2024</small></span></button>
+            <button class="paper-item" data-title="Survey on Multimodal Learning"><b>PDF</b><span>Survey on Multimodal Learning<small>IEEE TPAMI · 2024</small></span></button>
+          </div>
+        </section>
+
+        <section class="side-section resources-section">
+          <div class="section-title"><span><b class="section-icon link">↗</b> 外部资源库</span><button class="add-link">＋ 添加</button></div>
+          <a href="https://arxiv.org" target="_blank"><b class="source arxiv">X</b> arXiv <span>↗</span></a>
+          <a href="https://scholar.google.com" target="_blank"><b class="source scholar">G</b> Google Scholar <span>↗</span></a>
+          <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank"><b class="source pubmed">P</b> PubMed <span>↗</span></a>
+          <a href="https://ieeexplore.ieee.org" target="_blank"><b class="source ieee">I</b> IEEE Xplore <span>↗</span></a>
+          <a href="https://dl.acm.org" target="_blank"><b class="source acm">A</b> ACM Digital Library <span>↗</span></a>
+          <button class="more">•••</button>
+        </section>
+      </aside>
+
+      <section class="reader">
+        <div class="tabbar">
+          <div class="doc-tab"><span>PDF</span><strong id="tabTitle">A Multimodal Foundation Model for…</strong><button>×</button></div>
+          <button class="new-tab">＋</button>
+        </div>
+        <div class="reader-toolbar">
+          <button title="侧边栏">▥</button><span class="divider"></span><button>←</button>
+          <label><input id="pageInput" value="3" aria-label="页码" /> / 24</label>
+          <span class="divider"></span><button id="zoomOut">−</button><span class="zoom" id="zoomLabel">100%</span><button id="zoomIn">＋</button>
+          <span class="toolbar-spacer"></span>
+          <button class="tool active" data-tool="select" title="选择">⌁</button><button class="tool" data-tool="pan" title="拖拽">✋</button><button class="tool marker" data-tool="marker" title="高亮">▰</button><button class="tool" data-tool="pen" title="画笔">✎</button><button class="tool" data-tool="comment" title="批注">▤</button><button class="tool" data-tool="more">•••</button>
+        </div>
+        <div class="document-stage">
+          <article class="paper-page" id="paperPage">
+            <div class="page-meta"><span>OPEN ACCESS</span><span>NATURE MACHINE INTELLIGENCE</span></div>
+            <h1><span>3</span> Method</h1>
+            <p>We propose a <mark id="term">multimodal foundation model</mark> that unifies vision, language, and other modalities in a shared representation space. The model is built on a transformer architecture, and is trained with large-scale multimodal data using a mix of self-supervised and instruction tuning objectives.</p>
+
+            <div class="translation-popover" id="translation">
+              <div class="translation-tabs"><b>翻译</b><button>解释</button><button>术语</button><span>英 → 中⌄</span></div>
+              <div class="translation-word"><strong>多模态基础模型</strong><span>🔊　▣</span></div>
+              <p>指能够同时处理和理解多种模态（如图像、文本、音频等）数据的基础模型。</p>
+            </div>
+
+            <div class="model-diagram" aria-label="多模态基础模型示意图">
+              <div class="inputs"><span>▧ Image</span><span>▱ Text</span><span>◉ Audio</span></div>
+              <div class="connector left-lines"></div>
+              <div class="model-box">Multimodal<br><b>Foundation Model</b></div>
+              <div class="connector right-lines"></div>
+              <div class="outputs"><span>理解 <small>Understanding</small></span><span>生成 <small>Generation</small></span><span>推理 <small>Reasoning</small></span></div>
+            </div>
+            <div class="caption"><b>Figure 1.</b> Overall framework of our multimodal foundation model.</div>
+            <footer><span>nature machine intelligence</span><span>Volume 7 · January 2025 · 127–139</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <aside class="right-panel">
+        <div class="right-tabs"><button class="active">✦ AI 导览笔记</button><button>▧ 我的笔记</button></div>
+        <section class="ai-card">
+          <div class="card-heading"><h2><span>✦</span> AI 导览笔记 <sup>✧</sup></h2><button id="generateGuide">＋ 一键生成</button></div>
+          <div class="guide-tabs"><button class="active" data-guide="overview">内容导览</button><button data-guide="summary">核心摘要</button><button data-guide="method">研究方法</button><button data-guide="conclusion">关键结论</button><button data-guide="ideas">思考启发</button></div>
+          <div class="guide-content" id="guideContent">
+            <div class="timeline-item"><i class="blue">▰</i><div><b>论文速览</b><p>提出多模态基础模型的研究，旨在统一视觉、语言等多种模态的表示与理解。</p></div></div>
+            <div class="timeline-item"><i class="red">◎</i><div><b>研究问题</b><p>如何构建统一的多模态基础模型，实现跨模态知识迁移？</p></div></div>
+            <div class="timeline-item"><i class="cyan">✿</i><div><b>方法思路</b><p>基于 Transformer 架构，使用大规模多模态数据进行联合预训练。</p></div></div>
+            <div class="timeline-item"><i class="orange">⌁</i><div><b>主要结果</b><p>在多项多模态任务上达到领先水平，并展示出较强的泛化能力。</p></div></div>
+          </div>
+        </section>
+
+        <section class="notes-card">
+          <div class="notes-heading"><h2><span>▧</span> 我的笔记</h2><div><button id="exportNote" title="导出">⇩</button><button title="编辑">✎</button></div></div>
+          <div class="editor-toolbar"><button><b>B</b></button><button><i>I</i></button><button><u>U</u></button><span></span><button>☷</button><button>☰</button><button>↗</button><button>▧</button><button>&lt;/&gt;</button></div>
+          <div class="note-editor" id="noteEditor" contenteditable="true" spellcheck="false">
+            <h3>▣ 阅读笔记 · 2025/01/26</h3>
+            <ul><li><b>核心想法：</b>统一多模态表示空间 ✅</li><li><b>借鉴点：</b>训练目标的组合（自监督 + 指令微调）</li><li><b>疑问：</b><ol><li>多模态对齐的具体损失函数是什么？</li><li>数据规模与性能的关系？</li></ol></li></ul>
+          </div>
+          <div class="tags"><button># 多模态</button><button># 基础模型</button><button id="addTag">＋ 标签</button></div>
+          <div class="save-state" id="saveState">已自动保存</div>
+        </section>
+      </aside>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
